@@ -34,7 +34,6 @@ import { TASFScraper } from '@/providers/sources/theyallsayflix';
 import { tugaflixScraper } from '@/providers/sources/tugaflix';
 import { vidsrcScraper } from '@/providers/sources/vidsrc/index';
 import { vidsrcsuScraper } from '@/providers/sources/vidsrcsu';
-import { whvxScraper } from '@/providers/sources/whvx';
 import { zoechipScraper } from '@/providers/sources/zoechip';
 
 import {
@@ -81,10 +80,8 @@ import { warezcdnembedMp4Scraper } from './embeds/warezcdn/mp4';
 import { warezPlayerScraper } from './embeds/warezcdn/warezplayer';
 import { webtor1080Scraper, webtor480Scraper, webtor4kScraper, webtor720Scraper } from './embeds/webtor';
 import { wootlyScraper } from './embeds/wootly';
-import { coitusScraper } from './sources/coitus';
 import { embedsuScraper } from './sources/embedsu';
 import { FedAPIScraper } from './sources/fedapi';
-import { FedAPIDBScraper } from './sources/fedapidb';
 import { goojaraScraper } from './sources/goojara';
 import { hdRezkaScraper } from './sources/hdrezka';
 import { iosmirrorScraper } from './sources/iosmirror';
@@ -94,21 +91,53 @@ import { nepuScraper } from './sources/nepu';
 import { nitesScraper } from './sources/nites';
 import { primewireScraper } from './sources/primewire';
 import { ridooMoviesScraper } from './sources/ridomovies';
-import { roverScraper } from './sources/rover';
 import { slidemoviesScraper } from './sources/slidemovies';
 import { smashyStreamScraper } from './sources/smashystream';
 import { soaperTvScraper } from './sources/soapertv';
-import { uiraliveScraper } from './sources/uiralive';
-import { vidapiClickScraper } from './sources/vidapiclick';
 import { vidlinkScraper } from './sources/vidlink';
 import { vidSrcToScraper } from './sources/vidsrcto';
 import { warezcdnScraper } from './sources/warezcdn';
 import { webtorScraper } from './sources/webtor';
+import { twoEmbedScraper } from './sources/2embed';
+import { mirrorsScraper } from './sources/whvxMirrors';
+import { hindiScraper } from './sources/jalebiscraper';
+import { coitusScraper } from '@/providers/sources/coitus';
+import { uiraliveScraper } from './sources/uiralive';
+import {
+  uiraFlixhqScraper,
+  uiraGhostScraper,
+  uiraGuruScraper,
+  uiraHydraxScraper,
+  uiraMegaScraper,
+  uiraNinjaScraper,
+  uiraOrionScraper,
+  uiraRabbitScraper,
+  uiraVidapiScraper,
+  uiraVidsrcvipScraper,
+} from './embeds/uiralive';
+import { amznScraper, ntflxScraper } from './embeds/whvxMirrors';
 
 export function gatherAllSources(): Array<Sourcerer> {
   // all sources are gathered here
   return [
-    catflixScraper,
+    uiraliveScraper, // Uira 🔥 (940)
+    vidsrcsuScraper, // vidsrc.su 🐝 (901)
+    embedsuScraper, // embed.su ⚡ (229)
+    ridooMoviesScraper, // RidoMovies 🦕 (190)
+    fsharetvScraper, // Fsharetv 👽 (170)
+    catflixScraper, // Catflix 🐱 (160)
+    mirrorsScraper, // WHVX Mirrors 🌐 (158)
+    soaperTvScraper, // SoaperTV 🧼 (150)
+    twoEmbedScraper, // 2Embed 🎬 (140)
+    ee3Scraper, // EE3 🍄 (120)
+    coitusScraper, // Coitus 🐸 (91)
+    autoembedScraper, // Autoembed 🐢 (90)
+    tugaflixScraper, // Tugaflix 🇵🇹 (70)
+    insertunitScraper, // Insertunit 🌍 (12)
+    hindiScraper, // Jalebi Scraper 🍬 (10)
+    mp4hydraScraper, // Mp4Hydra 🐉 (3)
+    webtorScraper, // Webtor 🦥 (2)
+    // المصادر الأخرى
     flixhqScraper,
     remotestreamScraper,
     kissAsianScraper,
@@ -119,7 +148,6 @@ export function gatherAllSources(): Array<Sourcerer> {
     lookmovieScraper,
     nsbxScraper,
     smashyStreamScraper,
-    ridooMoviesScraper,
     vidSrcToScraper,
     nepuScraper,
     goojaraScraper,
@@ -127,31 +155,15 @@ export function gatherAllSources(): Array<Sourcerer> {
     m4uScraper,
     primewireScraper,
     warezcdnScraper,
-    insertunitScraper,
     nitesScraper,
-    soaperTvScraper,
-    autoembedScraper,
-    tugaflixScraper,
-    ee3Scraper,
-    whvxScraper,
-    fsharetvScraper,
     redStarScraper,
     bombtheirishScraper,
-    vidsrcsuScraper,
     TASFScraper,
-    mp4hydraScraper,
-    webtorScraper,
-    embedsuScraper,
     vidlinkScraper,
     FedAPIScraper,
-    FedAPIDBScraper,
     slidemoviesScraper,
     iosmirrorScraper,
-    iosmirrorPVScraper,
-    uiraliveScraper,
-    vidapiClickScraper,
-    coitusScraper,
-    roverScraper,
+    iosmirrorPVScraper
   ];
 }
 
@@ -203,6 +215,18 @@ export function gatherAllEmbeds(): Array<Embed> {
     streamwishScraper,
     mp4hydraServer1Scraper,
     mp4hydraServer2Scraper,
+    amznScraper,
+    ntflxScraper,
+    uiraFlixhqScraper,
+    uiraGhostScraper,
+    uiraGuruScraper,
+    uiraHydraxScraper,
+    uiraMegaScraper,
+    uiraNinjaScraper,
+    uiraOrionScraper,
+    uiraRabbitScraper,
+    uiraVidapiScraper,
+    uiraVidsrcvipScraper,
     VidsrcsuServer1Scraper,
     VidsrcsuServer2Scraper,
     VidsrcsuServer3Scraper,
