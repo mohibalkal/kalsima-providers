@@ -103,11 +103,29 @@ import { twoEmbedScraper } from '@/providers/sources/2embed';
 import { mirrorsScraper } from '@/providers/sources/whvxMirrors';
 import { hindiScraper } from '@/providers/sources/jalebiscraper';
 import { coitusScraper } from '@/providers/sources/coitus';
+import { uiraliveScraper } from '@/providers/sources/uiralive';
 
 export function gatherAllSources(): Array<Sourcerer> {
   // all sources are gathered here
   return [
-    catflixScraper,
+    uiraliveScraper, // Uira 🔥 (940)
+    vidsrcsuScraper, // vidsrc.su 🐝 (901)
+    embedsuScraper, // embed.su ⚡ (229)
+    ridooMoviesScraper, // RidoMovies 🦕 (190)
+    fsharetvScraper, // Fsharetv 👽 (170)
+    catflixScraper, // Catflix 🐱 (160)
+    mirrorsScraper, // WHVX Mirrors 🌐 (158)
+    soaperTvScraper, // SoaperTV 🧼 (150)
+    twoEmbedScraper, // 2Embed 🎬 (140)
+    ee3Scraper, // EE3 🍄 (120)
+    coitusScraper, // Coitus 🐸 (91)
+    autoembedScraper, // Autoembed 🐢 (90)
+    tugaflixScraper, // Tugaflix 🇵🇹 (70)
+    insertunitScraper, // Insertunit 🌍 (12)
+    hindiScraper, // Jalebi Scraper 🍬 (10)
+    mp4hydraScraper, // Mp4Hydra 🐉 (3)
+    webtorScraper, // Webtor 🦥 (2)
+    // المصادر الأخرى
     flixhqScraper,
     remotestreamScraper,
     kissAsianScraper,
@@ -118,7 +136,6 @@ export function gatherAllSources(): Array<Sourcerer> {
     lookmovieScraper,
     nsbxScraper,
     smashyStreamScraper,
-    ridooMoviesScraper,
     vidSrcToScraper,
     nepuScraper,
     goojaraScraper,
@@ -126,30 +143,15 @@ export function gatherAllSources(): Array<Sourcerer> {
     m4uScraper,
     primewireScraper,
     warezcdnScraper,
-    insertunitScraper,
     nitesScraper,
-    soaperTvScraper,
-    autoembedScraper,
-    tugaflixScraper,
-    ee3Scraper,
-    whvxScraper,
-    fsharetvScraper,
     redStarScraper,
     bombtheirishScraper,
-    vidsrcsuScraper,
     TASFScraper,
-    mp4hydraScraper,
-    webtorScraper,
-    embedsuScraper,
     vidlinkScraper,
     FedAPIScraper,
     slidemoviesScraper,
     iosmirrorScraper,
-    iosmirrorPVScraper,
-    twoEmbedScraper,
-    mirrorsScraper,
-    hindiScraper,
-    coitusScraper,
+    iosmirrorPVScraper
   ];
 }
 
