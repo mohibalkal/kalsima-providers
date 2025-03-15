@@ -9,8 +9,13 @@ export type SourcererEmbed = {
   url: string;
 };
 
+const usedRanks = new Set<number>();
+
 export type SourcererOutput = {
-  embeds: SourcererEmbed[];
+  embeds: Array<{
+    id: string;
+    embedScraperId: string;
+  }>;
   stream?: Stream[];
 };
 
@@ -27,23 +32,28 @@ export type SourcererOptions = {
   scrapeShow?: (input: ShowScrapeContext) => Promise<SourcererOutput>;
 };
 
-export type Sourcerer = SourcererOptions & {
+export type Sourcerer = {
   type: 'source';
-  disabled: boolean;
-  externalSource: boolean;
-  mediaTypes: MediaScraperTypes[];
+  id: string;
+  name: string;
+  rank: number;
+  disabled?: boolean;
+  mediaTypes?: Array<MediaScraperTypes>;
+  flags?: Array<Flags>;
+  scrapeMovie?: (ctx: MovieScrapeContext) => Promise<SourcererOutput>;
+  scrapeShow?: (ctx: ShowScrapeContext) => Promise<SourcererOutput>;
 };
 
-export function makeSourcerer(state: SourcererOptions): Sourcerer {
-  const mediaTypes: MediaScraperTypes[] = [];
-  if (state.scrapeMovie) mediaTypes.push('movie');
-  if (state.scrapeShow) mediaTypes.push('show');
+export function makeSourcerer(ops: Omit<Sourcerer, 'type'>): Sourcerer {
+  // التحقق من تكرار الترتيب
+  if (usedRanks.has(ops.rank)) {
+    throw new Error(`Duplicate rank ${ops.rank} found in source ${ops.id}`);
+  }
+  usedRanks.add(ops.rank);
+
   return {
-    ...state,
     type: 'source',
-    disabled: state.disabled ?? false,
-    externalSource: state.externalSource ?? false,
-    mediaTypes,
+    ...ops,
   };
 }
 
